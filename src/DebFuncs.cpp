@@ -1,4 +1,4 @@
-#include "DebFuncs.h"
+#include <DebFuncs.h>
 
 DF::Debounce::Debounce():RATE(25), recentValueMul100(100), debouncedValue(true){
 }
@@ -7,7 +7,7 @@ DF::Debounce::Debounce(long rate):RATE(rate), recentValueMul100(100), debouncedV
 bool DF::Debounce::operator()(bool currentValue){
   const long SMOOTHED_VALUE_MUL100 = RATE * currentValue + (100 - RATE) * recentValueMul100 / 100;
   recentValueMul100 = SMOOTHED_VALUE_MUL100;
-  
+
   if(debouncedValue){
     if(SMOOTHED_VALUE_MUL100 < 25){
       debouncedValue = false;
@@ -41,4 +41,3 @@ bool DF::IsCHANGED::operator()(bool currentValue){
   recentValue = currentValue;
   return RESULT;
 }
-
