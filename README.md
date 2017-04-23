@@ -19,7 +19,7 @@ Uses the Schmitt trigger emulation to let it work faster and more stably.
 As these are "function" objects, you can(and have to) handle each instance as  "function" directly.
 
 
-```
+```cpp
 
 #include <DebFuncs.h>
 
