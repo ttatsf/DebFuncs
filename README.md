@@ -33,7 +33,7 @@ DF::IsDROPPED isDroppedOne;
 //  Instantiate a set of arrays.
 DF::Debounce debounceArray[4];  
   //  or debounceArray[4]={10,10,10,10},for example.
-  //  You can set reaction rate from 0(no reaction) up to 100(no debouncing).
+  //  You can set each reaction rate from 0(no reaction) up to 100(no debouncing).
   //  The default value is 25.
 DF::IsDROPPED isDroppedArray[4];
 
