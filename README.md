@@ -27,14 +27,14 @@ As these are "function" objects, you can(and have to) handle each instance as  "
 DF::Debounce debounceOne;
   //  or debounceOne(10),for example.
   //  You can set reaction rate from 0(no reaction) up to 100(no debouncing).
-  //  The default value is 5.
+  //  The default value is 25.
 DF::IsDROPPED isDroppedOne;
 
 //  Instantiate a set of arrays.
 DF::Debounce debounceArray[4];  
   //  or debounceArray[4]={10,10,10,10},for example.
   //  You can set each reaction rate from 0(no reaction) up to 100(no debouncing).
-  //  The default value is 5.
+  //  The default value is 25.
 DF::IsDROPPED isDroppedArray[4];
 
 const int PIN_ONE = 2;
