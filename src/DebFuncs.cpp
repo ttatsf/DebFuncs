@@ -21,7 +21,7 @@ bool DF::Debounce::operator()(bool currentValue){
 DF::IsDROPPED::IsDROPPED():recentValue(false){
 }
 bool DF::IsDROPPED::operator()(bool currentValue){
-  const bool RESULT = recentValue and !currentValue ;
+  const bool RESULT = recentValue && !currentValue ;
   recentValue = currentValue;
   return RESULT;
 }
@@ -29,7 +29,7 @@ bool DF::IsDROPPED::operator()(bool currentValue){
 DF::IsRAISED::IsRAISED():recentValue(false){
 }
 bool DF::IsRAISED::operator()(bool currentValue){
-  const bool RESULT = !recentValue and currentValue ;
+  const bool RESULT = !recentValue && currentValue ;
   recentValue = currentValue;
   return RESULT;
 }
