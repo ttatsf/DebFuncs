@@ -9,10 +9,10 @@ bool DF::Debounce::operator()(bool currentValue){
   recentValueMul100 = SMOOTHED_VALUE_MUL100;
 
   if(debouncedValue){
-    if(SMOOTHED_VALUE_MUL100 < 25){
+    if(SMOOTHED_VALUE_MUL100 < 10){
       debouncedValue = false;
     }
-  } else if(SMOOTHED_VALUE_MUL100 > 75){
+  } else if(SMOOTHED_VALUE_MUL100 > 90){
       debouncedValue = true;
     }
   return debouncedValue;
