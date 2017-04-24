@@ -49,13 +49,13 @@ void setup() {
 }
 
 void loop() {
-  //the regular pattern :
+  // regular pattern :
   const bool DEBOUNCED_DATA = debounceOne( digitalRead( PIN_ONE ) );
   if ( isDroppedOne( DEBOUNCED_DATA ) ){
     //  Do anything you want only when the debounced data is dropped.
   }
 
-  //the regular pattern for array :
+  // regular pattern for array :
   for (int i = 0; i < 4; i++){
     const bool DEBOUNCED_DATA = debounceArray[i]( digitalRead( PIN_ARRAY[i] ) );
     if ( isDroppedArray[i]( DEBOUNCED_DATA ) ){
