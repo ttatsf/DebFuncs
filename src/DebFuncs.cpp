@@ -1,6 +1,6 @@
 #include <DebFuncs.h>
 
-DF::Debounce::Debounce():RATE(25), recentValueMul100(100), debouncedValue(true){
+DF::Debounce::Debounce():RATE(5), recentValueMul100(100), debouncedValue(true){
 }
 DF::Debounce::Debounce(long rate):RATE(rate), recentValueMul100(100), debouncedValue(true){
 }
