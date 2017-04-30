@@ -66,7 +66,7 @@ void loop() {
 }
 
 ```
-For more advanced usage, you can set values to reaction rate(0 ~ 100), lower threshold(0 ~50) and higher threshold(50 ~ 100).
+For more advanced usage, you can set values to reaction rate(0 ~ 100), lower threshold(0 ~50) and higher threshold(50 ~ 100) on initializing Debounce objects.
 
 For example:
 
