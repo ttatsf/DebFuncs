@@ -1,18 +1,40 @@
 #include <DebFuncs.h>
 
-DF::Debounce::Debounce():RATE(25), recentValueMul100(100), debouncedValue(true){
+DF::Debounce::Debounce()
+                      : RATE(25)
+                        , THRESHOLD_L(10)
+                        , THRESHOLD_H(90)
+                        , recentValueMul100(100)
+                        , debouncedValue(true)
+                      {
 }
-DF::Debounce::Debounce(long rate):RATE(rate), recentValueMul100(100), debouncedValue(true){
+DF::Debounce::Debounce(long rate)
+                      : RATE(rate)
+                        , THRESHOLD_L(10)
+                        , THRESHOLD_H(90)
+                        , recentValueMul100(100)
+                        , debouncedValue(true)
+                      {
+}
+DF::Debounce::Debounce(long rate
+                        , long thresholdL
+                        , long thresholdH )
+                      : RATE(rate)
+                        , THRESHOLD_L(thresholdL)
+                        , THRESHOLD_H(thresholdH)
+                        , recentValueMul100(100)
+                        , debouncedValue(true)
+                      {
 }
 bool DF::Debounce::operator()(bool currentValue){
   const long SMOOTHED_VALUE_MUL100 = RATE * currentValue + (100 - RATE) * recentValueMul100 / 100;
   recentValueMul100 = SMOOTHED_VALUE_MUL100;
 
   if(debouncedValue){
-    if(SMOOTHED_VALUE_MUL100 < 10){
+    if(SMOOTHED_VALUE_MUL100 < THRESHOLD_L){
       debouncedValue = false;
     }
-  } else if(SMOOTHED_VALUE_MUL100 > 90){
+  } else if(SMOOTHED_VALUE_MUL100 > THRESHOLD_H){
       debouncedValue = true;
     }
   return debouncedValue;

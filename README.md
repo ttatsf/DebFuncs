@@ -25,15 +25,15 @@ As these are "function" objects, you can(and have to) handle each instance as  "
 
 //  Instantiate a set of function objects.
 DF::Debounce debounceOne;
-  //  or debounceOne(10),for example.
-  //  You can set reaction rate from 0(no reaction) up to 100(no debouncing).
+  //  or "DF::Debounce debounceOne(20)",for example.
+  //  You can set value to the reaction rate from 0(no reaction) up to 100(no debouncing).
   //  The default value is 25.
 DF::IsDROPPED isDroppedOne;
 
 //  Instantiate a set of arrays.
 DF::Debounce debounceArray[4];  
-  //  or debounceArray[4]={10,10,10,10},for example.
-  //  You can set each reaction rate from 0(no reaction) up to 100(no debouncing).
+  //  or "DF::Debounce  debounceArray[4]={20,20,20,20}",for example.
+  //  You can set value to each reaction rate from 0(no reaction) up to 100(no debouncing).
   //  The default value is 25.
 DF::IsDROPPED isDroppedArray[4];
 
@@ -66,9 +66,21 @@ void loop() {
 }
 
 ```
+For more advanced usage, you can set values to reaction rate(0 ~ 100), lower threshold(0 ~50) and higher threshold(50 ~ 100).
 
+For example:
 
-
+```
+DF:Debounce debounceOne(25, 5, 95);
+```
+or:
+```
+DF::Debounce debounceArray[ 4 ] = { DF::Debounce(25, 5, 95)
+                                    , DF::Debounce(25, 5, 95)
+                                    , DF::Debounce(25, 5, 95)
+                                    , DF::Debounce(25, 5, 95)
+                                  };
+```
 
 # License
 This code is available under the [MIT License](http://opensource.org/licenses/mit-license.php).
