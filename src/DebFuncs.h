@@ -1,6 +1,6 @@
 #ifndef DEB_FUNCS_H
 #define DEB_FUNCS_H
-#include <Arduino.h>
+#include "Arduino.h"
 
 namespace DF{
   class Debounce{
@@ -14,7 +14,7 @@ namespace DF{
       Debounce();
       Debounce(long rate);
       Debounce(long rate, long thresholdL, long thresholdH);
-      bool operator()(bool currentValue);
+      bool operator()(const bool& currentValue);
   };
 
   class IsDROPPED{
@@ -22,21 +22,21 @@ namespace DF{
       bool recentValue;
     public:
       IsDROPPED();
-      bool operator()(bool currentValue);
+      bool operator()(const bool& currentValue);
   };
   class IsRAISED{
     private:
       bool recentValue;
     public:
       IsRAISED();
-      bool operator()(bool currentValue);
+      bool operator()(const bool& currentValue);
   };
   class IsCHANGED{
     private:
       bool recentValue;
     public:
       IsCHANGED();
-      bool operator()(bool currentValue);
+      bool operator()(const bool& currentValue);
   };
 }
 #endif
