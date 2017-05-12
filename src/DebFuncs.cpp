@@ -33,14 +33,11 @@ bool DF::Debounce::operator()( const bool& currentValue ){
                                     );
   recentValueMul100 = SMOOTHED_VALUE_MUL100;
 
-  if ( debouncedValue ){
-      if( SMOOTHED_VALUE_MUL100 < THRESHOLD_L ){
-        return debouncedValue = false;
-      }
-  } else if( SMOOTHED_VALUE_MUL100 > THRESHOLD_H ){
-        return debouncedValue = true;
-  }
-  return debouncedValue;
+  return debouncedValue ?
+           ( SMOOTHED_VALUE_MUL100 < THRESHOLD_L )?(debouncedValue = false):true
+         :
+           ( SMOOTHED_VALUE_MUL100 > THRESHOLD_H )?(debouncedValue = true):false
+  ;
 }
 
 DF::IsDROPPED::IsDROPPED():recentValue( false ){
